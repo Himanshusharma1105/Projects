@@ -1,0 +1,77 @@
+import java.util.*;
+public class TicTacToe{
+    public static void main(String[] args) {
+        char [][] gameBoard={{' ','|',' ','|',' '},
+        {'-','+','-','+','-'},
+        {' ','|',' ','|',' '},
+        {'-','+','-','+','-'},
+        {' ','|',' ','|',' '}};
+        Scanner sc=new Scanner(System.in);
+        printBoard(gameBoard);
+        System.out.println("ENTER NAME OF PLAYER 1: ");
+        String p1=sc.nextLine();
+        System.out.println("ENTER NAME OF PLAYER 2: ");
+        String p2=sc.nextLine();
+        for(int i =1;i<=9;i++){
+            char cc;String p;
+            if(i%2==0){
+                cc='X';p=p2;
+            }
+            else{
+                cc='O';p=p1;
+            }
+            System.out.println("ENTER THE BOX NO.-");
+            int ch=sc.nextInt();
+            switch(ch){
+                case 1:
+                gameBoard[0][0]=cc;
+                break;
+                case 2:
+                gameBoard[0][2]=cc;
+                break;
+                case 3:
+                gameBoard[0][4]=cc;
+                break;
+                case 4:
+                gameBoard[2][0]=cc;
+                break;
+                case 5:
+                gameBoard[2][2]=cc;
+                break;
+                case 6:
+                gameBoard[2][4]=cc;
+                break;
+                case 7:
+                gameBoard[4][0]=cc;
+                break;
+                case 8:
+                gameBoard[4][2]=cc;
+                break;
+                case 9:
+                gameBoard[4][4]=cc;
+                break;
+                default:
+                System.out.println("WRONG CHOICE");
+            }
+
+            printBoard(gameBoard);
+            
+            if((gameBoard[0][0]==gameBoard[0][2] && gameBoard[0][0]==gameBoard[0][4])&&(gameBoard[0][0]!=' ')||(gameBoard[2][0]==gameBoard[2][2] && gameBoard[2][0]==gameBoard[2][4])&&(gameBoard[2][0]!=' ')||(gameBoard[4][0]==gameBoard[4][2] && gameBoard[4][0]==gameBoard[4][4])&&(gameBoard[4][0]!=' ')||(gameBoard[0][0]==gameBoard[2][0] && gameBoard[0][0]==gameBoard[4][0])&&(gameBoard[0][0]!=' ')||(gameBoard[0][2]==gameBoard[2][2] && gameBoard[0][2]==gameBoard[4][2])&&(gameBoard[0][2]!=' ')||(gameBoard[0][4]==gameBoard[2][4] && gameBoard[0][4]==gameBoard[4][4])&&(gameBoard[0][4]!=' ')||(gameBoard[0][0]==gameBoard[2][2] && gameBoard[0][0]==gameBoard[4][4])&&(gameBoard[0][0]!=' ')||(gameBoard[0][4]==gameBoard[2][2] && gameBoard[0][4]==gameBoard[4][0])&&(gameBoard[0][0]!=' ')){
+                System.out.println(p+" IS THE WINNER");
+            }
+            else if(i==9)
+            System.out.println("\n\n      DRAW");
+        }
+    }
+    static Bool check(ch)
+    static void printBoard(char [][] gameBoard){
+        for(char row[] : gameBoard){
+            System.out.print("      ");
+            for(char c: row){
+                System.out.print(c);
+            }
+            System.out.println();
+            
+        }
+    }
+}
